@@ -24,17 +24,17 @@ function createCategory(categoryData) {
     column.appendChild(card);
 
     const cardBody= document.createElement('div');
-    cardBody.classList.add('bg-white', 'rounded-2', 'border-card', 'column-class');
+    cardBody.classList.add('bg-white', 'rounded-2', 'border-card', 'column-class', 'card');
     card.appendChild(cardBody);
 
     const iconContainer= document.createElement('div');
-    iconContainer.classList.add('rounded-circle', 'border-card', 'icon-class', 'd-flex', 'justify-content-center', 'align-items-center');
+    iconContainer.classList.add('rounded-circle', 'border-card', 'icon-class', 'd-flex', 'justify-content-center', 'align-items-center', 'iconMouse');
     cardBody.appendChild(iconContainer);
 
     const iconArray= categoryData.icon.split(' ')
 
     const icon= document.createElement('i');
-    icon.classList.add(iconArray[0], iconArray[1]);
+    icon.classList.add(iconArray[0], iconArray[1], 'textColor');
     iconContainer.appendChild(icon);
 
     const title= document.createElement('h3');
@@ -43,7 +43,7 @@ function createCategory(categoryData) {
     cardBody.append(title);
 
     const paragraph= document.createElement('p');
-    paragraph.textContent = categoryData.announcmentsCount+ ' '+ 'Annunci';
+    paragraph.textContent = categoryData.announcementCount+ ' '+ 'Annunci';
     paragraph.classList.add('mb-0', 'text-center');
     cardBody.appendChild(paragraph);
 
