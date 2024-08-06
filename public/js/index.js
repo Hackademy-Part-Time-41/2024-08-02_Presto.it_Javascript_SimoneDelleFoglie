@@ -24,7 +24,7 @@ function createCategory(categoryData) {
     column.appendChild(card);
 
     const cardBody= document.createElement('div');
-    cardBody.classList.add('bg-white', 'rounded-2', 'border-card', 'column-class', 'card');
+    cardBody.classList.add('bg-white', 'rounded-2', 'border-card', 'column-class', 'cardHigh');
     card.appendChild(cardBody);
 
     const iconContainer= document.createElement('div');
