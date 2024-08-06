@@ -32,7 +32,7 @@ function createAnnouncements(announcementData) {
     } else {
         bgColor= 'bg-primary'
     }
-    column.innerHTML= `<div class="card">
+    column.innerHTML= `<a href="/public/announcement.html?id=${announcementData.id}" class="card h-100 text-decoration-none">
     <div class="position-relative">
         <span class="badge ${bgColor} position-absolute top-0 end-0 px-4 py-2 text-uppercase">${announcementData.type}</span>
         <img src="https://picsum.photos/640/480" class="card-img-top" alt="...">
@@ -47,7 +47,7 @@ function createAnnouncements(announcementData) {
         <p class="mb-0 textColor"><i class="bi bi-tag-fill"></i> <span>${announcementData.category}</span></p>
         <p class="mb-0 textColor"><i class="bi bi-calendar-fill"></i> <span>${announcementData.createdAt}</span></p>
     </div>
-</div>`
+</a>`
 
 
     return column;
