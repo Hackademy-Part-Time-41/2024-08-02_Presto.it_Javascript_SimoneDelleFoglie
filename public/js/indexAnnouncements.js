@@ -54,13 +54,25 @@ function createAnnouncements(announcementData) {
 }
 
 
+// per creare la tendina con le opzioni delle categorie
+function showCategories (announcements) {
+    const categoriesSet= new Set();
+        announcements.forEach((announcement)=> {
+            categoriesSet.add(announcement.category)
+        });
+
+        categoriesSet.forEach((category) => {
+            const optionSelect= document.createElement('option');
+            optionSelect.textContent= category;
+            optionSelect.value= category;
+            categorySelect.appendChild(optionSelect);
+        })
+}
 
 
 
 
-
-
-
+// funzione che mostra gli annunci 
 function showAnnouncements(announcements) {
     const announcementsRow= document.getElementById('announcementsRow');
     //clear delle vecchie card
@@ -79,7 +91,7 @@ function showAnnouncements(announcements) {
 
 
 
-
+//fuzione che filtra in base alle indicazioni della form 
 function announcementsFilteringAndSorting (announcements, options) {
     const announcementFiltered= announcements.filter((announcement) => {
 
@@ -151,15 +163,24 @@ fetch('/server/annunci.json')
        return response.json();
     })
     .then((announcements) => {
-        showAnnouncements(announcements);
 
         const searchInput = document.getElementById('searchInput');
         const categorySelect = document.getElementById('categorySelect');
         const minPriceInput= document.getElementById('minPriceInput');
         const maxPriceInput= document.getElementById('maxPriceInput');
         const sortSelect= document.getElementById('sortSelect');
-        const filterForming= document.getElementById('filterForming');
+        
+        
+        // per creare la tendina con le opzioni delle categorie
+        showCategories(announcements);
 
+
+
+        //per mostrare gli annunci in base alle indicazioni della form, vado a richiamare la funzione che esegue il filtraggio e successivamente richiamo la funzione che mi mostra gli annunci 
+        showAnnouncements(announcements);
+
+
+        const filterForming= document.getElementById('filterForming');
         filterForming.addEventListener('submit', (event) => {
             event.preventDefault();
             
